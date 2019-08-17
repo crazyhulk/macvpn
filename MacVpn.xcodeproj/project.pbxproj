@@ -14,6 +14,7 @@
 		A201D5FD22FF0014007D4611 /* PacketTunnel.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = A201D5F522FF0014007D4611 /* PacketTunnel.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		A201D60422FF0045007D4611 /* NetworkExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A201D60322FF0045007D4611 /* NetworkExtension.framework */; };
 		A201D60522FF0058007D4611 /* NetworkExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A201D60322FF0045007D4611 /* NetworkExtension.framework */; };
+		A24F09A22307AECF00BD078B /* Provider+Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = A24F09A12307AECF00BD078B /* Provider+Config.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +53,7 @@
 		A201D5F922FF0014007D4611 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A201D5FA22FF0014007D4611 /* PacketTunnel.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PacketTunnel.entitlements; sourceTree = "<group>"; };
 		A201D60322FF0045007D4611 /* NetworkExtension.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NetworkExtension.framework; path = System/Library/Frameworks/NetworkExtension.framework; sourceTree = SDKROOT; };
+		A24F09A12307AECF00BD078B /* Provider+Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Provider+Config.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +111,7 @@
 			isa = PBXGroup;
 			children = (
 				A201D5F722FF0014007D4611 /* PacketTunnelProvider.swift */,
+				A24F09A12307AECF00BD078B /* Provider+Config.swift */,
 				A201D5F922FF0014007D4611 /* Info.plist */,
 				A201D5FA22FF0014007D4611 /* PacketTunnel.entitlements */,
 			);
@@ -253,6 +256,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A24F09A22307AECF00BD078B /* Provider+Config.swift in Sources */,
 				A201D5F822FF0014007D4611 /* PacketTunnelProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

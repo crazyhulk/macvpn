@@ -77,8 +77,10 @@ class PacketTunnelProvider: NEPacketTunnelProvider {
                                            enableTLS: false,
                                            tlsParameters: nil,
                                            delegate: nil)
-        
-        setupTunnelNetworkSettings(hostIP: "10.0.0.1", clientIP: "10.0.0.2")
+        configIP { (hostIP, clientIP) in
+            self.setupTunnelNetworkSettings(hostIP: hostIP, clientIP: clientIP)
+        }
+//        setupTunnelNetworkSettings(hostIP: "10.0.0.2", clientIP: "10.0.0.3")
         // 监听 tcp 连接状态
         tcpConn!.addObserver(self, forKeyPath: "state", options: .initial, context: nil)
     }
