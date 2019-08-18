@@ -59,7 +59,8 @@ class PacketTunnelProvider: NEPacketTunnelProvider {
     
     let mtu = 1500
     
-    let endpoint = NWHostEndpoint(hostname:"35.236.153.210", port: "8080")
+//    let endpoint = NWHostEndpoint(hostname:"35.236.153.210", port: "8080")
+    var endpoint: NWHostEndpoint!
     
     var tcpConn: NWTCPConnection? = nil
     
@@ -67,9 +68,14 @@ class PacketTunnelProvider: NEPacketTunnelProvider {
     
     override func startTunnel(options: [String : NSObject]?,
                               completionHandler: @escaping (Error?) -> Void) {
-        NSLog("========vpn begin config")
-        tcpThread.start()
-        tunThread.start()
+        guard
+            let server = options?["ServerAddress"] as? String,
+            let port = options?["Port"] as? String
+        else {
+            return
+        }
+        endpoint = NWHostEndpoint(hostname:server, port: port)
+        
         startCompletionHandler = completionHandler
         
         // 连接服务器
@@ -208,10 +214,13 @@ extension PacketTunnelProvider {
         if #available(iOSApplicationExtension 10.0, *) {
             self.packetFlow.readPacketObjects { (packets) in
                 for packet in packets {
-                    NSLog("send:\(packet.data as NSData)")
+//                    NSLog("send:\(packet.data as NSData)")
                     let packPacket = UInt32(packet.data.count).data + packet.data
                     self.tcpConn?.write(packPacket, completionHandler: { (err) in
-                        NSLog("write error: \(String(describing: err))")
+                        guard err == nil else {
+                            NSLog("write error: \(String(describing: err))")
+                            return
+                        }
                     })
                 }
                 self.tunToTCP()
@@ -219,28 +228,28 @@ extension PacketTunnelProvider {
             return
         } else {
             // Fallback on earlier versions
-        }
-        self.packetFlow.readPackets() { (packets: [Data], protocols: [NSNumber]) in
-            self.writeProcotol = protocols
-            for data in packets {
-                print(data)
-                NSLog("send:\(data as NSData)")
-                let packet = UInt32(data.count).data + data
-                self.tcpConn!.write(packet) { (error: Error?) in
-                    guard error == nil else {
-                        NSLog("tunToTCP error: \(String(describing: error))")
-                        //                        self.tcpConn?.cancel()
-                        // 连接服务器
-                        self.tcpConn = self.createTCPConnection(to: self.endpoint,
-                                                                enableTLS: false,
-                                                                tlsParameters: nil,
-                                                                delegate: nil)
-                        return
+            self.packetFlow.readPackets() { (packets: [Data], protocols: [NSNumber]) in
+                self.writeProcotol = protocols
+                for data in packets {
+//                    print(data)
+//                    NSLog("send:\(data as NSData)")
+                    let packet = UInt32(data.count).data + data
+                    self.tcpConn!.write(packet) { (error: Error?) in
+                        guard error == nil else {
+                            NSLog("tunToTCP error: \(String(describing: error))")
+                            //                        self.tcpConn?.cancel()
+                            // 连接服务器
+                            self.tcpConn = self.createTCPConnection(to: self.endpoint,
+                                                                    enableTLS: false,
+                                                                    tlsParameters: nil,
+                                                                    delegate: nil)
+                            return
+                        }
                     }
                 }
+                
+                self.tunToTCP()
             }
-            
-            self.tunToTCP()
         }
     }
     
@@ -269,8 +278,8 @@ extension PacketTunnelProvider {
             }
             
             self.tcpConn?.readLength(Int(count), completionHandler: { (pdata: Data?, error: Error?) in
-                NSLog("tcpToTun, len: %d", pdata?.count ?? -1)
-                NSLog("receive:\(pdata! as NSData)")
+//                NSLog("tcpToTun, len: %d", pdata?.count ?? -1)
+//                NSLog("receive:\(pdata! as NSData)")
                 guard error == nil, let packet = pdata else {
                     NSLog("tcpToRun read error: \(String(describing: error))")
                     

@@ -15,6 +15,8 @@
 		A201D60422FF0045007D4611 /* NetworkExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A201D60322FF0045007D4611 /* NetworkExtension.framework */; };
 		A201D60522FF0058007D4611 /* NetworkExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A201D60322FF0045007D4611 /* NetworkExtension.framework */; };
 		A24F09A22307AECF00BD078B /* Provider+Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = A24F09A12307AECF00BD078B /* Provider+Config.swift */; };
+		A24F09A5230928B600BD078B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A24F09A3230928B600BD078B /* ViewController.swift */; };
+		A24F09A6230928B600BD078B /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A24F09A4230928B600BD078B /* ViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +56,8 @@
 		A201D5FA22FF0014007D4611 /* PacketTunnel.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PacketTunnel.entitlements; sourceTree = "<group>"; };
 		A201D60322FF0045007D4611 /* NetworkExtension.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NetworkExtension.framework; path = System/Library/Frameworks/NetworkExtension.framework; sourceTree = SDKROOT; };
 		A24F09A12307AECF00BD078B /* Provider+Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Provider+Config.swift"; sourceTree = "<group>"; };
+		A24F09A3230928B600BD078B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		A24F09A4230928B600BD078B /* ViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +105,8 @@
 				A201D5E322FEFEDC007D4611 /* AppDelegate.swift */,
 				A201D5E522FEFEDD007D4611 /* Assets.xcassets */,
 				A201D5E722FEFEDD007D4611 /* MainMenu.xib */,
+				A24F09A3230928B600BD078B /* ViewController.swift */,
+				A24F09A4230928B600BD078B /* ViewController.xib */,
 				A201D5EA22FEFEDD007D4611 /* Info.plist */,
 				A201D5EB22FEFEDD007D4611 /* MacVpn.entitlements */,
 			);
@@ -230,6 +236,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A201D5E622FEFEDD007D4611 /* Assets.xcassets in Resources */,
+				A24F09A6230928B600BD078B /* ViewController.xib in Resources */,
 				A201D5E922FEFEDD007D4611 /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -248,6 +255,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A24F09A5230928B600BD078B /* ViewController.swift in Sources */,
 				A201D5E422FEFEDC007D4611 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

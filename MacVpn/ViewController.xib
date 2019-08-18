@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14490.70"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="ViewController" customModule="MacVpn" customModuleProvider="target">
+            <connections>
+                <outlet property="portLabel" destination="2KW-wL-TFF" id="RBM-s9-5g0"/>
+                <outlet property="serverLabel" destination="53z-9c-4zv" id="jcJ-Gn-U7N"/>
+                <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="Hz6-mo-xeY">
+            <rect key="frame" x="0.0" y="0.0" width="480" height="272"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="53z-9c-4zv">
+                    <rect key="frame" x="20" y="227" width="320" height="25"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="25" id="TQn-I1-vNT"/>
+                    </constraints>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" placeholderString="服务器地址" drawsBackground="YES" id="r83-PN-5sh">
+                        <font key="font" usesAppearanceFont="YES"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="2KW-wL-TFF">
+                    <rect key="frame" x="360" y="227" width="100" height="25"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="100" id="RmL-8p-qG5"/>
+                        <constraint firstAttribute="height" constant="25" id="bYc-1h-fra"/>
+                    </constraints>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" placeholderString="端口" drawsBackground="YES" id="O1T-Lk-aid">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3R5-QF-1eg">
+                    <rect key="frame" x="21" y="156" width="67" height="32"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <buttonCell key="cell" type="push" title="保存" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="NEF-Xu-Adi">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="saveConfigration:" target="-2" id="jm0-Ry-b5A"/>
+                    </connections>
+                </button>
+            </subviews>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="2KW-wL-TFF" secondAttribute="trailing" constant="20" id="DKY-lK-xip"/>
+                <constraint firstItem="2KW-wL-TFF" firstAttribute="leading" secondItem="53z-9c-4zv" secondAttribute="trailing" constant="20" id="YVI-tx-sro"/>
+                <constraint firstItem="53z-9c-4zv" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="20" id="g9l-a1-93g"/>
+                <constraint firstItem="53z-9c-4zv" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="20" id="oir-fz-1YV"/>
+                <constraint firstItem="2KW-wL-TFF" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="20" id="uKV-RR-g8r"/>
+            </constraints>
+            <point key="canvasLocation" x="-51" y="164"/>
+        </customView>
+    </objects>
+</document>

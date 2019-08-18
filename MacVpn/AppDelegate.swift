@@ -12,15 +12,24 @@ import NetworkExtension
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
     
-        var statusBarItem: NSStatusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
+    var statusBarItem: NSStatusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
 
     @IBOutlet weak var menu: NSMenu!
+    
+    lazy var window: NSWindow = {
+        let window = NSWindow.init(contentRect: NSRect.init(x: 500, y: 500, width: 500, height: 500),
+                               styleMask: [NSWindow.StyleMask.titled, .closable],
+                               backing: NSWindow.BackingStoreType.buffered,
+                               defer: true)
+        window.contentViewController = ViewController()
+        return window
+    }()
     
     lazy var vpnManager: NETunnelProviderManager = {
         let manager = NETunnelProviderManager()
         let providerProtocol = NETunnelProviderProtocol()
         providerProtocol.providerBundleIdentifier = self.tunnelBundleId
-        providerProtocol.serverAddress = "35.236.153.210"
+        providerProtocol.username = "superuser"
         
         manager.protocolConfiguration = providerProtocol
         manager.localizedDescription = "VPN_New"
@@ -42,22 +51,39 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
 
     @IBAction func startVpn(_ sender: Any) {
-        NSLog("==============start vpn")
-        self.vpnManager.loadFromPreferences { (error:Error?) in
-            if let error = error {
-                print(error)
+        guard let port = UserDefaults.standard.value(forKey: "Port") as? String else {
+            return
+        }
+        NETunnelProviderManager.loadAllFromPreferences { (managers, error) in
+            guard error == nil else { return }
+            
+            guard let _managers = managers, _managers.count > 0 else {
+                return
             }
+            
+            self.vpnManager = _managers[0]
+            
             do {
-                try self.vpnManager.connection.startVPNTunnel()
+                try self.vpnManager.connection.startVPNTunnel(options: [
+                    "Port": port as NSString
+                    ])
             } catch let err {
                 print(err)
             }
-            
         }
     }
     
     @IBAction func stopVpn(_ sender: Any) {
         self.vpnManager.connection.stopVPNTunnel()
+    }
+    
+    @IBAction func configVPN(_ sender: Any) {
+        guard window.isVisible == false else {
+            NSApp.activate(ignoringOtherApps: true)
+            return
+        }
+        window.makeKey()
+        window.setIsVisible(true)
     }
 }
 
@@ -74,6 +100,9 @@ extension AppDelegate {
             if let savedManagers = savedManagers {
                 if savedManagers.count > 0 {
                     self.vpnManager = savedManagers[0]
+                } else {
+                    self.window.makeKey()
+                    self.window.setIsVisible(true)
                 }
                 
                 self.vpnManager.saveToPreferences(completionHandler: { (er) in
@@ -89,4 +118,7 @@ extension AppDelegate {
             }
         }
     }
+    
+    
+    
 }
