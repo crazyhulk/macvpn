@@ -38,7 +38,14 @@
                         <action selector="configVPN:" target="Voe-Tx-rLC" id="AEP-Uf-pVT"/>
                     </connections>
                 </menuItem>
+                <menuItem title="exit" id="Fep-C9-SFS">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="exitApp:" target="Voe-Tx-rLC" id="spT-ol-DHr"/>
+                    </connections>
+                </menuItem>
             </items>
+            <point key="canvasLocation" x="140" y="162"/>
         </menu>
     </objects>
 </document>

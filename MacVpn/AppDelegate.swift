@@ -85,6 +85,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         window.makeKey()
         window.setIsVisible(true)
     }
+    
+    
+    @IBAction func exitApp(_ sender: Any) {
+        self.vpnManager.connection.stopVPNTunnel()
+        exit(0)
+    }
 }
 
 extension AppDelegate {
