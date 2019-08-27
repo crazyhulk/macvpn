@@ -187,7 +187,8 @@ extension PacketTunnelProvider {
         let ipSettings = NEIPv4Settings(addresses: [clientIP], subnetMasks: ["255.255.255.0"])
         // 设置所有流量走隧道
         ipSettings.includedRoutes = [ NEIPv4Route.default() ]
-        ipSettings.excludedRoutes = []
+//        ipSettings.excludedRoutes = []
+        ipSettings.excludedRoutes = defaultWhiteList()
         
         settings.ipv4Settings = ipSettings
         //        settings.tunnelOverheadBytes = NSNumber(1500)

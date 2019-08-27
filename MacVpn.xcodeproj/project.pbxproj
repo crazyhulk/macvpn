@@ -17,6 +17,7 @@
 		A24F09A22307AECF00BD078B /* Provider+Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = A24F09A12307AECF00BD078B /* Provider+Config.swift */; };
 		A24F09A5230928B600BD078B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A24F09A3230928B600BD078B /* ViewController.swift */; };
 		A24F09A6230928B600BD078B /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A24F09A4230928B600BD078B /* ViewController.xib */; };
+		AA35F08C2314E2E40031EA2F /* Provider+WhiteList.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA35F08B2314E2E40031EA2F /* Provider+WhiteList.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,7 @@
 		A24F09A12307AECF00BD078B /* Provider+Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Provider+Config.swift"; sourceTree = "<group>"; };
 		A24F09A3230928B600BD078B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		A24F09A4230928B600BD078B /* ViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ViewController.xib; sourceTree = "<group>"; };
+		AA35F08B2314E2E40031EA2F /* Provider+WhiteList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Provider+WhiteList.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +120,7 @@
 			children = (
 				A201D5F722FF0014007D4611 /* PacketTunnelProvider.swift */,
 				A24F09A12307AECF00BD078B /* Provider+Config.swift */,
+				AA35F08B2314E2E40031EA2F /* Provider+WhiteList.swift */,
 				A201D5F922FF0014007D4611 /* Info.plist */,
 				A201D5FA22FF0014007D4611 /* PacketTunnel.entitlements */,
 			);
@@ -266,6 +269,7 @@
 			files = (
 				A24F09A22307AECF00BD078B /* Provider+Config.swift in Sources */,
 				A201D5F822FF0014007D4611 /* PacketTunnelProvider.swift in Sources */,
+				AA35F08C2314E2E40031EA2F /* Provider+WhiteList.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
