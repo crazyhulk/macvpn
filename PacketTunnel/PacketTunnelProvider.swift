@@ -31,6 +31,17 @@ extension UInt32 {
         return "\(byte1).\(byte2).\(byte3).\(byte4)"
     }
     
+    public func ipv4BigEndian() -> String {
+        let ip = self
+        
+        let byte4 = UInt8(ip & 0xff)
+        let byte3 = UInt8((ip>>8) & 0xff)
+        let byte2 = UInt8((ip>>16) & 0xff)
+        let byte1 = UInt8((ip>>24) & 0xff)
+        
+        return "\(byte1).\(byte2).\(byte3).\(byte4)"
+    }
+    
     
     var data: Data {
         var int = self

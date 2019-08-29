@@ -28,8 +28,12 @@ extension PacketTunnelProvider {
             let whiteString = UserDefaults.standard.value(forKey: "WhiteList") as? String
         else { return [] }
         
+        return parseIPString(addessStr: whiteString)
+    }
+    
+    func parseIPString(addessStr: String) -> [NEIPv4Route] {
         var whiteNames: [NEIPv4Route] = []
-        for hostName in whiteString.split(separator: ",") {
+        for hostName in addessStr.split(separator: ",") {
             
             let unsolve = hostName.split(separator: "/")
             guard unsolve.count < 3 && unsolve.count > 0 else { continue }
@@ -43,12 +47,13 @@ extension PacketTunnelProvider {
             let add = String.init(format: "%d.%d.%d.%d", ns[0]!,ns[1]!,ns[2]!,ns[3]!)
             var netmask = "255.255.255.255"
             var mask = ~UInt32(0)
-            if ns.count > 1, let sub = Int(unsolve[1]) {
+            if unsolve.count > 1, let sub = Int(unsolve[1]) {
                 mask = mask << (32 - sub)
-                netmask = mask.ipv4()
+                netmask = mask.ipv4BigEndian()
             }
             whiteNames.append(NEIPv4Route.init(destinationAddress: add, subnetMask: netmask))
         }
+        
         return whiteNames
     }
 }

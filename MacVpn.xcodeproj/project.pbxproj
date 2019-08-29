@@ -17,6 +17,10 @@
 		A24F09A22307AECF00BD078B /* Provider+Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = A24F09A12307AECF00BD078B /* Provider+Config.swift */; };
 		A24F09A5230928B600BD078B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A24F09A3230928B600BD078B /* ViewController.swift */; };
 		A24F09A6230928B600BD078B /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A24F09A4230928B600BD078B /* ViewController.xib */; };
+		A2CD3ED123180EAB000F7D10 /* MacVpnTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2CD3ED023180EAB000F7D10 /* MacVpnTests.swift */; };
+		A2CD3ED8231810D0000F7D10 /* Provider+WhiteList.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA35F08B2314E2E40031EA2F /* Provider+WhiteList.swift */; };
+		A2CD3ED9231810F0000F7D10 /* PacketTunnelProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A201D5F722FF0014007D4611 /* PacketTunnelProvider.swift */; };
+		A2CD3EDA2318121D000F7D10 /* Provider+Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = A24F09A12307AECF00BD078B /* Provider+Config.swift */; };
 		AA35F08C2314E2E40031EA2F /* Provider+WhiteList.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA35F08B2314E2E40031EA2F /* Provider+WhiteList.swift */; };
 /* End PBXBuildFile section */
 
@@ -27,6 +31,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = A201D5F422FF0014007D4611;
 			remoteInfo = PacketTunnel;
+		};
+		A2CD3ED323180EAB000F7D10 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A201D5D822FEFEDC007D4611 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A201D5DF22FEFEDC007D4611;
+			remoteInfo = MacVpn;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -59,6 +70,9 @@
 		A24F09A12307AECF00BD078B /* Provider+Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Provider+Config.swift"; sourceTree = "<group>"; };
 		A24F09A3230928B600BD078B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		A24F09A4230928B600BD078B /* ViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ViewController.xib; sourceTree = "<group>"; };
+		A2CD3ECE23180EAB000F7D10 /* MacVpnTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MacVpnTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A2CD3ED023180EAB000F7D10 /* MacVpnTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacVpnTests.swift; sourceTree = "<group>"; };
+		A2CD3ED223180EAB000F7D10 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AA35F08B2314E2E40031EA2F /* Provider+WhiteList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Provider+WhiteList.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -79,6 +93,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A2CD3ECB23180EAB000F7D10 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -87,6 +108,7 @@
 			children = (
 				A201D5E222FEFEDC007D4611 /* MacVpn */,
 				A201D5F622FF0014007D4611 /* PacketTunnel */,
+				A2CD3ECF23180EAB000F7D10 /* MacVpnTests */,
 				A201D5E122FEFEDC007D4611 /* Products */,
 				A201D60222FF0045007D4611 /* Frameworks */,
 			);
@@ -97,6 +119,7 @@
 			children = (
 				A201D5E022FEFEDC007D4611 /* MacVpn.app */,
 				A201D5F522FF0014007D4611 /* PacketTunnel.appex */,
+				A2CD3ECE23180EAB000F7D10 /* MacVpnTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -133,6 +156,15 @@
 				A201D60322FF0045007D4611 /* NetworkExtension.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A2CD3ECF23180EAB000F7D10 /* MacVpnTests */ = {
+			isa = PBXGroup;
+			children = (
+				A2CD3ED023180EAB000F7D10 /* MacVpnTests.swift */,
+				A2CD3ED223180EAB000F7D10 /* Info.plist */,
+			);
+			path = MacVpnTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -174,6 +206,24 @@
 			productReference = A201D5F522FF0014007D4611 /* PacketTunnel.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
+		A2CD3ECD23180EAB000F7D10 /* MacVpnTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A2CD3ED723180EAB000F7D10 /* Build configuration list for PBXNativeTarget "MacVpnTests" */;
+			buildPhases = (
+				A2CD3ECA23180EAB000F7D10 /* Sources */,
+				A2CD3ECB23180EAB000F7D10 /* Frameworks */,
+				A2CD3ECC23180EAB000F7D10 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A2CD3ED423180EAB000F7D10 /* PBXTargetDependency */,
+			);
+			name = MacVpnTests;
+			productName = MacVpnTests;
+			productReference = A2CD3ECE23180EAB000F7D10 /* MacVpnTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -212,6 +262,10 @@
 							};
 						};
 					};
+					A2CD3ECD23180EAB000F7D10 = {
+						CreatedOnToolsVersion = 10.2.1;
+						TestTargetID = A201D5DF22FEFEDC007D4611;
+					};
 				};
 			};
 			buildConfigurationList = A201D5DB22FEFEDC007D4611 /* Build configuration list for PBXProject "MacVpn" */;
@@ -229,6 +283,7 @@
 			targets = (
 				A201D5DF22FEFEDC007D4611 /* MacVpn */,
 				A201D5F422FF0014007D4611 /* PacketTunnel */,
+				A2CD3ECD23180EAB000F7D10 /* MacVpnTests */,
 			);
 		};
 /* End PBXProject section */
@@ -245,6 +300,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		A201D5F322FF0014007D4611 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A2CD3ECC23180EAB000F7D10 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -273,6 +335,17 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A2CD3ECA23180EAB000F7D10 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A2CD3EDA2318121D000F7D10 /* Provider+Config.swift in Sources */,
+				A2CD3ED8231810D0000F7D10 /* Provider+WhiteList.swift in Sources */,
+				A2CD3ED123180EAB000F7D10 /* MacVpnTests.swift in Sources */,
+				A2CD3ED9231810F0000F7D10 /* PacketTunnelProvider.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -280,6 +353,11 @@
 			isa = PBXTargetDependency;
 			target = A201D5F422FF0014007D4611 /* PacketTunnel */;
 			targetProxy = A201D5FB22FF0014007D4611 /* PBXContainerItemProxy */;
+		};
+		A2CD3ED423180EAB000F7D10 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A201D5DF22FEFEDC007D4611 /* MacVpn */;
+			targetProxy = A2CD3ED323180EAB000F7D10 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -490,6 +568,46 @@
 			};
 			name = Release;
 		};
+		A2CD3ED523180EAB000F7D10 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 95923X8WXP;
+				INFOPLIST_FILE = MacVpnTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.xizi.MacVpnTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MacVpn.app/Contents/MacOS/MacVpn";
+			};
+			name = Debug;
+		};
+		A2CD3ED623180EAB000F7D10 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 95923X8WXP;
+				INFOPLIST_FILE = MacVpnTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.xizi.MacVpnTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MacVpn.app/Contents/MacOS/MacVpn";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -516,6 +634,15 @@
 			buildConfigurations = (
 				A201D5FF22FF0014007D4611 /* Debug */,
 				A201D60022FF0014007D4611 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A2CD3ED723180EAB000F7D10 /* Build configuration list for PBXNativeTarget "MacVpnTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A2CD3ED523180EAB000F7D10 /* Debug */,
+				A2CD3ED623180EAB000F7D10 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
