@@ -14,7 +14,6 @@
         <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="MacVpn" customModuleProvider="target">
             <connections>
                 <outlet property="menu" destination="gRG-WG-RRg" id="3HH-64-2oQ"/>
-                <outlet property="menuItem" destination="xAG-Rt-Pzs" id="qw8-bI-CSC"/>
             </connections>
         </customObject>
         <customObject id="YLy-65-1bz" customClass="NSFontManager"/>

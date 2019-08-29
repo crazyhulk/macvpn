@@ -10,6 +10,7 @@
                 <outlet property="portLabel" destination="2KW-wL-TFF" id="RBM-s9-5g0"/>
                 <outlet property="serverLabel" destination="53z-9c-4zv" id="jcJ-Gn-U7N"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
+                <outlet property="whiteListTextView" destination="19y-RY-RDx" id="EyW-Yu-eis"/>
             </connections>
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
@@ -41,9 +42,42 @@
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
-                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3R5-QF-1eg">
-                    <rect key="frame" x="21" y="156" width="67" height="32"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="cPr-rk-jZT">
+                    <rect key="frame" x="160" y="202" width="160" height="17"/>
+                    <textFieldCell key="cell" lineBreakMode="clipping" title="白名单, IP 地址用逗号隔开" id="i96-5T-PTU">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="systemBrownColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <scrollView borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cfq-Ok-c6j">
+                    <rect key="frame" x="20" y="37" width="440" height="157"/>
+                    <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="H7i-hw-Nao">
+                        <rect key="frame" x="0.0" y="0.0" width="425" height="157"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView importsGraphics="NO" richText="NO" verticallyResizable="YES" spellingCorrection="YES" smartInsertDelete="YES" id="19y-RY-RDx">
+                                <rect key="frame" x="0.0" y="0.0" width="425" height="157"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                <size key="minSize" width="425" height="157"/>
+                                <size key="maxSize" width="425" height="10000000"/>
+                                <color key="insertionPointColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                            </textView>
+                        </subviews>
+                    </clipView>
+                    <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="06b-uA-iSz">
+                        <rect key="frame" x="-100" y="-100" width="225" height="15"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </scroller>
+                    <scroller key="verticalScroller" verticalHuggingPriority="750" horizontal="NO" id="R1j-P2-zv0">
+                        <rect key="frame" x="425" y="0.0" width="15" height="157"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </scroller>
+                </scrollView>
+                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="3R5-QF-1eg">
+                    <rect key="frame" x="207" y="1" width="67" height="32"/>
                     <buttonCell key="cell" type="push" title="保存" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="NEF-Xu-Adi">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
@@ -54,13 +88,21 @@
                 </button>
             </subviews>
             <constraints>
+                <constraint firstItem="cfq-Ok-c6j" firstAttribute="leading" secondItem="53z-9c-4zv" secondAttribute="leading" id="7Vr-3V-gdi"/>
                 <constraint firstAttribute="trailing" secondItem="2KW-wL-TFF" secondAttribute="trailing" constant="20" id="DKY-lK-xip"/>
+                <constraint firstItem="cfq-Ok-c6j" firstAttribute="centerX" secondItem="3R5-QF-1eg" secondAttribute="centerX" id="Pv1-na-cAN"/>
+                <constraint firstAttribute="bottom" secondItem="3R5-QF-1eg" secondAttribute="bottom" constant="8" id="Uuw-yt-iNT"/>
                 <constraint firstItem="2KW-wL-TFF" firstAttribute="leading" secondItem="53z-9c-4zv" secondAttribute="trailing" constant="20" id="YVI-tx-sro"/>
+                <constraint firstItem="cPr-rk-jZT" firstAttribute="centerX" secondItem="cfq-Ok-c6j" secondAttribute="centerX" id="Z5P-wx-YyL"/>
                 <constraint firstItem="53z-9c-4zv" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="20" id="g9l-a1-93g"/>
+                <constraint firstItem="cPr-rk-jZT" firstAttribute="top" secondItem="53z-9c-4zv" secondAttribute="bottom" constant="8" symbolic="YES" id="ijg-e3-uWY"/>
                 <constraint firstItem="53z-9c-4zv" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="20" id="oir-fz-1YV"/>
+                <constraint firstItem="cfq-Ok-c6j" firstAttribute="top" secondItem="cPr-rk-jZT" secondAttribute="bottom" constant="8" symbolic="YES" id="tGL-QE-JTt"/>
+                <constraint firstItem="cfq-Ok-c6j" firstAttribute="trailing" secondItem="2KW-wL-TFF" secondAttribute="trailing" id="u82-Ji-pYV"/>
                 <constraint firstItem="2KW-wL-TFF" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="20" id="uKV-RR-g8r"/>
+                <constraint firstItem="3R5-QF-1eg" firstAttribute="top" secondItem="cfq-Ok-c6j" secondAttribute="bottom" constant="8" id="xSE-VK-6jU"/>
             </constraints>
-            <point key="canvasLocation" x="-51" y="164"/>
+            <point key="canvasLocation" x="-130" y="-393"/>
         </customView>
     </objects>
 </document>

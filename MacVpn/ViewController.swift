@@ -12,6 +12,8 @@ import NetworkExtension
 class ViewController: NSViewController {
     @IBOutlet weak var serverLabel: NSTextField!
     @IBOutlet weak var portLabel: NSTextField!
+
+    @IBOutlet var whiteListTextView: NSTextView!
     
     let tunnelBundleId = "com.xizi.macvpn.PacketTunnel"
     
@@ -42,9 +44,11 @@ class ViewController: NSViewController {
     @IBAction func saveConfigration(_ sender: Any) {
         let server = serverLabel.stringValue
         let port = portLabel.stringValue
+        let whiteList = whiteListTextView.string
         
         UserDefaults.standard.set(server, forKey: "Server")
         UserDefaults.standard.set(port, forKey: "Port")
+        UserDefaults.standard.set(port, forKey: "WhiteList")
         
         
         
@@ -67,7 +71,8 @@ class ViewController: NSViewController {
             
             do {
                 try self.vpnManager.connection.startVPNTunnel(options: [
-                    "Port": port as NSString
+                    "Port": port as NSString,
+                    "whiteList": whiteList as NSString
                     ])
             } catch let err {
                 print(err)
@@ -87,5 +92,15 @@ class ViewController: NSViewController {
 //            }
 //            
 //        }
+    }
+}
+
+
+extension ViewController {
+    
+    func parseWhiteList() -> String {
+        return whiteListTextView
+            .string
+            .filter({ !" \n\t\r".contains($0) })
     }
 }
