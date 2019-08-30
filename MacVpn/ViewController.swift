@@ -54,10 +54,9 @@ class ViewController: NSViewController {
         let port = portLabel.stringValue
         let whiteList = whiteListTextView.string
         
-        UserDefaults.standard.set(server, forKey: "Server")
-        UserDefaults.standard.set(port, forKey: "Port")
-        UserDefaults.standard.set(whiteList, forKey: "WhiteList")
-        
+        DataCenter.shared.set(server, forKey: "Server")
+        DataCenter.shared.set(port, forKey: "Port")
+        DataCenter.shared.set(whiteList, forKey: "WhiteList")
         
         
         NETunnelProviderManager.loadAllFromPreferences { (managers, error) in

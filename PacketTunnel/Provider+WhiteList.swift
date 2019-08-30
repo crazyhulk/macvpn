@@ -11,7 +11,9 @@ import NetworkExtension
 extension PacketTunnelProvider {
     
     func whiteList() -> [NEIPv4Route] {
-        return defaultWhiteList() + customWhiteList()
+        let customList = customWhiteList()
+        if customList.count > 0 { return customList }
+        return defaultWhiteList()
     }
     
     func defaultWhiteList() -> [NEIPv4Route] {
@@ -23,9 +25,8 @@ extension PacketTunnelProvider {
     }
     
     func customWhiteList() -> [NEIPv4Route] {
-        
         guard
-            let whiteString = UserDefaults.standard.value(forKey: "WhiteList") as? String
+            let whiteString = DataCenter.shared.value(forKey: "WhiteList") as? String
         else { return [] }
         
         return parseIPString(addessStr: whiteString)

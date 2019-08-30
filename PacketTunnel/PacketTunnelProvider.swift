@@ -195,17 +195,17 @@ extension PacketTunnelProvider {
         let settings = NEPacketTunnelNetworkSettings(tunnelRemoteAddress: hostIP)
         
         // 设置隧道本地 ip
-        let ipSettings = NEIPv4Settings(addresses: [clientIP], subnetMasks: ["255.255.255.0"])
+        let ipSettings = NEIPv4Settings(addresses: [clientIP], subnetMasks: ["255.255.255.255"])
         // 设置所有流量走隧道
-        ipSettings.includedRoutes = [ NEIPv4Route.default() ]
+        ipSettings.includedRoutes = [NEIPv4Route.default()]
 //        ipSettings.excludedRoutes = []
-        ipSettings.excludedRoutes = defaultWhiteList()
+        ipSettings.excludedRoutes = whiteList()
         
         settings.ipv4Settings = ipSettings
         //        settings.tunnelOverheadBytes = NSNumber(1500)
         settings.mtu = NSNumber.init(value: mtu)
         
-        settings.dnsSettings = NEDNSSettings(servers: ["8.8.8.8"])
+        settings.dnsSettings = NEDNSSettings(servers: ["10.23.194.202", "10.23.194.203", "8.8.8.8"])
         
         self.setTunnelNetworkSettings(settings) { (error: Error?) -> Void in
             guard error == nil else {

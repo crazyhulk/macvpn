@@ -37,7 +37,8 @@ class MacVpnTests: XCTestCase {
         
         XCTAssert(p.parseIPString(addessStr: "10").first?.destinationAddress == "10.0.0.0")
         XCTAssert(p.parseIPString(addessStr: "10/8").first?.destinationSubnetMask == "255.0.0.0")
-        XCTAssert(p.parseIPString(addessStr: "10/9").first?.destinationSubnetMask == "255.128.0.0")  
+        XCTAssert(p.parseIPString(addessStr: "10/9").first?.destinationSubnetMask == "255.128.0.0")
+        XCTAssert(p.parseIPString(addessStr: "139.196.14.154").first?.destinationSubnetMask == "255.255.255.255")
     }
 
 }

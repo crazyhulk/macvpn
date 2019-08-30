@@ -22,6 +22,9 @@
 		A2CD3ED9231810F0000F7D10 /* PacketTunnelProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A201D5F722FF0014007D4611 /* PacketTunnelProvider.swift */; };
 		A2CD3EDA2318121D000F7D10 /* Provider+Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = A24F09A12307AECF00BD078B /* Provider+Config.swift */; };
 		AA35F08C2314E2E40031EA2F /* Provider+WhiteList.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA35F08B2314E2E40031EA2F /* Provider+WhiteList.swift */; };
+		AA35F0C62318E7900031EA2F /* DataCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA35F0C52318E7900031EA2F /* DataCenter.swift */; };
+		AA35F0C82318EFC30031EA2F /* DataCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA35F0C52318E7900031EA2F /* DataCenter.swift */; };
+		AA35F0C92318F14E0031EA2F /* DataCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA35F0C52318E7900031EA2F /* DataCenter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +77,7 @@
 		A2CD3ED023180EAB000F7D10 /* MacVpnTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacVpnTests.swift; sourceTree = "<group>"; };
 		A2CD3ED223180EAB000F7D10 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AA35F08B2314E2E40031EA2F /* Provider+WhiteList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Provider+WhiteList.swift"; sourceTree = "<group>"; };
+		AA35F0C52318E7900031EA2F /* DataCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataCenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +135,7 @@
 				A201D5E522FEFEDD007D4611 /* Assets.xcassets */,
 				A201D5E722FEFEDD007D4611 /* MainMenu.xib */,
 				A24F09A3230928B600BD078B /* ViewController.swift */,
+				AA35F0C52318E7900031EA2F /* DataCenter.swift */,
 				A24F09A4230928B600BD078B /* ViewController.xib */,
 				A201D5EA22FEFEDD007D4611 /* Info.plist */,
 				A201D5EB22FEFEDD007D4611 /* MacVpn.entitlements */,
@@ -246,6 +251,9 @@
 							com.apple.NetworkExtensions = {
 								enabled = 1;
 							};
+							com.apple.Sandbox = {
+								enabled = 1;
+							};
 							com.apple.VPNLite = {
 								enabled = 1;
 							};
@@ -254,6 +262,9 @@
 					A201D5F422FF0014007D4611 = {
 						CreatedOnToolsVersion = 10.2.1;
 						SystemCapabilities = {
+							com.apple.ApplicationGroups.Mac = {
+								enabled = 1;
+							};
 							com.apple.Keychain = {
 								enabled = 1;
 							};
@@ -320,6 +331,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA35F0C62318E7900031EA2F /* DataCenter.swift in Sources */,
 				A24F09A5230928B600BD078B /* ViewController.swift in Sources */,
 				A201D5E422FEFEDC007D4611 /* AppDelegate.swift in Sources */,
 			);
@@ -331,6 +343,7 @@
 			files = (
 				A24F09A22307AECF00BD078B /* Provider+Config.swift in Sources */,
 				A201D5F822FF0014007D4611 /* PacketTunnelProvider.swift in Sources */,
+				AA35F0C82318EFC30031EA2F /* DataCenter.swift in Sources */,
 				AA35F08C2314E2E40031EA2F /* Provider+WhiteList.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -341,6 +354,7 @@
 			files = (
 				A2CD3EDA2318121D000F7D10 /* Provider+Config.swift in Sources */,
 				A2CD3ED8231810D0000F7D10 /* Provider+WhiteList.swift in Sources */,
+				AA35F0C92318F14E0031EA2F /* DataCenter.swift in Sources */,
 				A2CD3ED123180EAB000F7D10 /* MacVpnTests.swift in Sources */,
 				A2CD3ED9231810F0000F7D10 /* PacketTunnelProvider.swift in Sources */,
 			);
@@ -515,9 +529,10 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = MacVpn/MacVpn.entitlements;
+				CODE_SIGN_IDENTITY = "3rd Party Mac Developer Application";
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 95923X8WXP;
 				INFOPLIST_FILE = MacVpn/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -525,7 +540,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.xizi.macvpn;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = "mac vpn app store";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
@@ -554,6 +569,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = PacketTunnel/PacketTunnel.entitlements;
+				CODE_SIGN_IDENTITY = "3rd Party Mac Developer Application";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 95923X8WXP;
 				INFOPLIST_FILE = PacketTunnel/Info.plist;
@@ -564,7 +580,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.xizi.macvpn.PacketTunnel;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "mac tunnel";
+				PROVISIONING_PROFILE_SPECIFIER = "mac tunnel app store";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 			};
