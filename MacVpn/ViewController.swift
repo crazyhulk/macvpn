@@ -22,10 +22,10 @@ class ViewController: NSViewController {
         let providerProtocol = NETunnelProviderProtocol()
         providerProtocol.providerBundleIdentifier = self.tunnelBundleId
 //        providerProtocol.serverAddress = ""
-        providerProtocol.username = "superuser"
+        providerProtocol.username = "老司机"
         
         manager.protocolConfiguration = providerProtocol
-        manager.localizedDescription = "VPN_New"
+        manager.localizedDescription = "快上车"
         return manager
     }()
     
@@ -39,6 +39,14 @@ class ViewController: NSViewController {
         if let port = UserDefaults.standard.value(forKey: "Port") as? String  {
             portLabel.stringValue = port
         }
+        
+        if let whiteList = UserDefaults.standard.value(forKey: "WhiteList") as? String  {
+            whiteListTextView.string = whiteList
+        }
+    }
+    
+    override func viewWillAppear() {
+        super.viewWillAppear()
     }
     
     @IBAction func saveConfigration(_ sender: Any) {
@@ -48,7 +56,7 @@ class ViewController: NSViewController {
         
         UserDefaults.standard.set(server, forKey: "Server")
         UserDefaults.standard.set(port, forKey: "Port")
-        UserDefaults.standard.set(port, forKey: "WhiteList")
+        UserDefaults.standard.set(whiteList, forKey: "WhiteList")
         
         
         

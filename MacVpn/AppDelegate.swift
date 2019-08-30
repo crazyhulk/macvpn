@@ -22,6 +22,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                                backing: NSWindow.BackingStoreType.buffered,
                                defer: true)
         window.contentViewController = ViewController()
+        window.isReleasedWhenClosed = false
         return window
     }()
     
@@ -29,10 +30,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let manager = NETunnelProviderManager()
         let providerProtocol = NETunnelProviderProtocol()
         providerProtocol.providerBundleIdentifier = self.tunnelBundleId
-        providerProtocol.username = "superuser"
+        providerProtocol.username = "老司机"
         
         manager.protocolConfiguration = providerProtocol
-        manager.localizedDescription = "VPN_New"
+        manager.localizedDescription = "快上车"
         return manager
     }()
     

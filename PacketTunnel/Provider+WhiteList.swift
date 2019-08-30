@@ -31,6 +31,8 @@ extension PacketTunnelProvider {
         return parseIPString(addessStr: whiteString)
     }
     
+    // 解析 ip 地址，形如 10/8, 192.168/16
+    // 如果没有‘/’表示子网掩码 /32
     func parseIPString(addessStr: String) -> [NEIPv4Route] {
         var whiteNames: [NEIPv4Route] = []
         for hostName in addessStr.split(separator: ",") {
