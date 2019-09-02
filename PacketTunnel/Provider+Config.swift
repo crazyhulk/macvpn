@@ -14,6 +14,19 @@ enum ConfigType: UInt32 {
 
 extension PacketTunnelProvider {
     
+    func getConfig(options: [String : NSObject]?) -> (server: String, port: String) {
+        if let s = options?["ServerAddress"] as? String,
+            let p = options?["Port"] as? String {
+            return (s, p)
+        }
+        
+        if let server = DataCenter.shared.value(forKey: "ServerAddress") as? String,
+            let port = DataCenter.shared.value(forKey: "Port") as? String {
+            return (server, port)
+        }
+        return ("", "")
+    }
+    
     func configIP(callBack: @escaping (String, String) -> Void) {
         self.tcpConn?.readLength(4, completionHandler: { (headerData, headerErr) in
             guard let count = headerData?.uint32, headerErr == nil else {

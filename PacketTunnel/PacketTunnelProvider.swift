@@ -79,12 +79,10 @@ class PacketTunnelProvider: NEPacketTunnelProvider {
     
     override func startTunnel(options: [String : NSObject]?,
                               completionHandler: @escaping (Error?) -> Void) {
-        guard
-            let server = options?["ServerAddress"] as? String,
-            let port = options?["Port"] as? String
-        else {
-            return
-        }
+        var server: String = "", port: String = ""
+        (server, port) = getConfig(options: options)
+        if server.count == 0 { return }
+        
         endpoint = NWHostEndpoint(hostname:server, port: port)
         
         startCompletionHandler = completionHandler
@@ -205,7 +203,7 @@ extension PacketTunnelProvider {
         //        settings.tunnelOverheadBytes = NSNumber(1500)
         settings.mtu = NSNumber.init(value: mtu)
         
-        settings.dnsSettings = NEDNSSettings(servers: ["10.23.194.202", "10.23.194.203", "8.8.8.8"])
+        settings.dnsSettings = NEDNSSettings(servers: ["8.8.8.8"])
         
         self.setTunnelNetworkSettings(settings) { (error: Error?) -> Void in
             guard error == nil else {
