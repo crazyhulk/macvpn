@@ -23,6 +23,13 @@ class ViewController: NSViewController {
         providerProtocol.providerBundleIdentifier = self.tunnelBundleId
 //        providerProtocol.serverAddress = ""
         providerProtocol.username = "老司机"
+        if #available(OSX 10.15, *) {
+            providerProtocol.includeAllNetworks = true
+            providerProtocol.excludeLocalNetworks = true
+        } else {
+            // Fallback on earlier versions
+        }
+        
         
         manager.protocolConfiguration = providerProtocol
         manager.localizedDescription = "快上车"
