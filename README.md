@@ -1,6 +1,8 @@
 # macvpn
 `macvpn` 是一个简单基于 tun 设备的 macOS VPN 客户端.
 
+[原理介绍](https://xizi.in/network/tunnuel.html)
+
 
 ## 工作原理
 ```
